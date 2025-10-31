@@ -1,0 +1,453 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/factory/containers/protos/WoodenBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/balls/protos/SoccerBall.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/toys/protos/RubberDuck.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.11669977771733749 -0.16133946295052096 0.9799748668081041 5.011527706612236
+  position -0.3761360549542483 1.1282093911081985 0.4296162878278622
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorAppearance NULL
+}
+Solid {
+  translation -0.18 -0.2 0
+  children [
+    DEF com Shape {
+      appearance PBRAppearance {
+        baseColor 1 1 0
+        roughness 1
+        metalness 0
+      }
+      geometry Cone {
+        bottomRadius 0.05
+        height 0.1
+      }
+    }
+  ]
+  name "solid(5)"
+}
+Solid {
+  translation 0.42 -0.12 0
+  children [
+    DEF com Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        roughness 1
+        metalness 0
+      }
+      geometry Cone {
+        bottomRadius 0.05
+        height 0.1
+      }
+    }
+  ]
+  name "solid(4)"
+}
+Solid {
+  translation -0.27 -0.11 0
+  children [
+    DEF com Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry Cone {
+        bottomRadius 0.05
+        height 0.1
+      }
+    }
+  ]
+  name "solid(3)"
+}
+Solid {
+  children [
+    DEF com Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry Cone {
+        bottomRadius 0.05
+        height 0.1
+      }
+    }
+  ]
+}
+Solid {
+  translation 0 0.25 0
+  children [
+    DEF com Shape {
+      appearance PBRAppearance {
+        baseColor 0 1 0
+        roughness 1
+        metalness 0
+      }
+      geometry Cone {
+        bottomRadius 0.05
+        height 0.1
+      }
+    }
+  ]
+  name "solid(1)"
+}
+Solid {
+  translation 0 -0.24 0
+  children [
+    DEF com Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        roughness 1
+        metalness 0
+      }
+      geometry Cone {
+        bottomRadius 0.05
+        height 0.1
+      }
+    }
+  ]
+  name "solid(2)"
+}
+Robot {
+  translation -0.33125664046209435 0.3229900793974479 0.017060791784185316
+  rotation -0.9734177781467741 0.22896942904886497 -0.005552454307273126 -3.1349919016715626
+  children [
+    Solid {
+      translation 0.03 0 -0.05
+      children [
+        SliderJoint {
+          jointParameters JointParameters {
+            position 0.05
+          }
+          device [
+            LinearMotor {
+              name "linear_m"
+              maxPosition 0.5
+            }
+          ]
+          endPoint Solid {
+            translation 0.02 0 0.010000000000000002
+            rotation 0 1 0 1.5708
+            children [
+              HingeJoint {
+                jointParameters HingeJointParameters {
+                  position -6.135039999999996
+                  anchor 0 0 0.02
+                }
+                device [
+                  RotationalMotor {
+                    name "linear_r_m"
+                  }
+                ]
+                endPoint Solid {
+                  translation 0 -0.0002952080197614967 0.021978093077958793
+                  rotation -9.818937108862583e-08 0.07400493571581208 -0.997257875120417 3.141595299903112
+                  children [
+                    Camera {
+                      translation -1.82136e-08 8.94961e-10 0.0024
+                      rotation 0 1 0 -1.5106756132800117
+                      width 520
+                      height 520
+                      recognition Recognition {
+                        frameThickness 3
+                      }
+                    }
+                    Shape {
+                      appearance PBRAppearance {
+                        baseColor 0.3 0 0
+                        roughness 1
+                        metalness 0
+                      }
+                      geometry Cylinder {
+                        height 0.005
+                        radius 0.005
+                      }
+                    }
+                  ]
+                }
+              }
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 0 1 0
+                  roughness 1
+                  metalness 0
+                }
+                geometry Box {
+                  size 0.01 0.01 0.04
+                }
+              }
+            ]
+          }
+        }
+        DEF box Shape {
+          appearance PBRAppearance {
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.01 0.01 0.1
+          }
+        }
+      ]
+      name "solid(4)"
+      boundingObject USE box
+      physics Physics {
+      }
+    }
+    InertialUnit {
+      children [
+        DEF imu Solid {
+          translation -0.03 0 -0.01
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 1 0.3 0.1
+                roughness 1
+                metalness 0
+              }
+              geometry Cylinder {
+                height 0.005
+                radius 0.01
+              }
+            }
+          ]
+        }
+      ]
+      name "imu"
+    }
+    GPS {
+      translation 0 0 0.007
+      children [
+        Solid {
+          translation 0 0 -0.02
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0 1 1
+                roughness 1
+                metalness 0
+              }
+              geometry Box {
+                size 0.01 0.01 0.01
+              }
+            }
+          ]
+        }
+      ]
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position -168.88573177313464
+        axis 0 1 0
+        anchor 0.02 -0.03 -5.5743e-05
+      }
+      device [
+        RotationalMotor {
+          name "motor1"
+        }
+      ]
+      endPoint Solid {
+        translation 0.019932981308447544 0.030003217199254112 0.0001337471893781246
+        rotation 0.8705311901332564 0.3481151446221857 -0.34783802708998185 1.7082171534682622
+        children [
+          DEF weel2 Shape {
+            appearance PBRAppearance {
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.005
+              radius 0.0173
+            }
+          }
+        ]
+        name "solid(3)"
+        boundingObject USE weel2
+        physics Physics {
+        }
+        linearVelocity 1.105483789159641e-12 -1.9980297511538424e-13 2.5271353555725423e-14
+        angularVelocity 2.5164171388818855e-11 5.101657797353464e-11 1.5347155688574733e-11
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position -202.84387753960493
+        axis 0 1 0
+        anchor -0.0200141 -0.0299406 1.0994e-06
+      }
+      device [
+        RotationalMotor {
+          name "motor2"
+        }
+      ]
+      endPoint Solid {
+        translation -0.02003235845589184 0.030058697880102497 0.0002797771858514931
+        rotation -0.4971875789103075 0.6148692659975646 -0.612160352447725 4.060382804088351
+        children [
+          DEF weel Shape {
+            appearance PBRAppearance {
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.005
+              radius 0.0167
+            }
+          }
+        ]
+        name "solid(2)"
+        boundingObject USE weel
+        physics Physics {
+        }
+        linearVelocity 8.144725449008517e-13 -7.541934194959055e-13 -1.0386620920959935e-14
+        angularVelocity 3.86229809566004e-11 7.441943430180276e-11 1.52634093646245e-11
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position -19.109228428767782
+        axis 0 1 0
+        anchor 0.02 -0.03 -5.5743e-05
+      }
+      device [
+        RotationalMotor {
+          name "motor3"
+        }
+      ]
+      endPoint Solid {
+        translation 0.02000075259131586 -0.030000002662073658 -5.472098733252619e-05
+        rotation -0.9833623107802257 0.12850066824651946 -0.12839838004107595 4.696408336912483
+        children [
+          DEF weel2 Shape {
+            appearance PBRAppearance {
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.005
+              radius 0.0173
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE weel2
+        physics Physics {
+        }
+        linearVelocity 2.819441395060952e-13 2.1565514436191124e-13 -1.211266074382612e-14
+        angularVelocity -1.998258566918511e-12 -2.6085231148771374e-12 1.5578035987265822e-11
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position -53.067344465421655
+        axis 0 1 0
+        anchor -0.0200141 -0.0299406 1.0994e-06
+      }
+      device [
+        RotationalMotor {
+          name "motor4"
+        }
+      ]
+      endPoint Solid {
+        translation -0.020012453810767487 -0.029940675960176424 1.700232314426653e-06
+        rotation -0.12195184517885908 0.7023467898470972 -0.701310725890421 3.3780747092160572
+        children [
+          DEF weel Shape {
+            appearance PBRAppearance {
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.005
+              radius 0.0167
+            }
+          }
+        ]
+        boundingObject USE weel
+        physics Physics {
+        }
+        linearVelocity 3.976819566343553e-15 -3.4250610248712464e-13 2.5258581551932024e-14
+        angularVelocity -2.3948158432945934e-12 -3.4299768762668555e-12 1.5583055656811167e-11
+      }
+    }
+    DEF body Shape {
+      appearance PBRAppearance {
+        baseColor 0 0.3 1
+        roughness 1
+        metalness 0
+        name "body"
+      }
+      geometry Box {
+        size 0.1 0.06 0.02
+      }
+    }
+  ]
+  boundingObject USE body
+  physics Physics {
+  }
+  controller "keyboardController"
+  linearVelocity 5.783730699232548e-13 -2.412000236959738e-13 2.2518739010243174e-14
+  angularVelocity -1.6034394227137563e-13 1.087592184465126e-12 1.5561392407641496e-11
+}
+WoodenBox {
+  translation 0.37705214689231914 0.2389399649703552 0.04960760000180914
+  rotation -1.4798890522607372e-09 1.5207419133482868e-07 0.9999999999999886 0.001502182081737407
+  size 0.1 0.1 0.1
+  mass 1
+}
+SoccerBall {
+  translation -0.07097161470871993 -0.470715585711068 0.024058239999999995
+  rotation 0.6253721208805854 -0.49528532019547494 0.6029943300099796 2.0467691730098894
+  radius 0.025
+}
+SoccerBall {
+  translation 0.4749661070313856 0.17601827035439546 0.02405824000000013
+  rotation -0.8824952576658938 -0.28771284956970855 0.37205300212427517 1.5039981395963948
+  name "soccer ball(1)"
+  radius 0.025
+}
+SoccerBall {
+  translation 0.06236999159864558 -0.264849836355055 0.024058239999999995
+  rotation 0.022855201919100385 -0.6772139463208658 0.7354311053074629 2.6237416678860463
+  name "soccer ball(2)"
+  radius 0.025
+}
+WoodenBox {
+  translation 0.13903358498048282 -0.2872961192857506 0.049607600012727425
+  rotation 1.679417547020889e-09 6.19038152509017e-10 1 0.009842531428971504
+  name "wooden box(1)"
+  size 0.1 0.1 0.1
+  mass 1
+}
+WoodenBox {
+  hidden linearVelocity_0 -7.908061625783851e-18 -7.506007171465058e-17 0
+  hidden angularVelocity_0 1.865174681370268e-15 1.7749370367472766e-30 1.6775219906472302e-16
+  translation -0.40881381715561155 0.04069058996702314 0.04960760000000003
+  rotation 1.9766687254007687e-14 -4.6261192267870124e-14 -1 0.0020949564616965398
+  name "wooden box(2)"
+  size 0.1 0.1 0.1
+  mass 1
+}
+RubberDuck {
+  translation 0.11395207724932858 -0.046159663953829595 0.010242252275608224
+  rotation -1.0619474242511924e-15 7.04990113903044e-16 -1 0.21854251469943722
+  scale 0.5
+}
+RubberDuck {
+  translation -0.19519910624596806 0.44843475897209145 0.010242252275608224
+  rotation -4.0685285298791397e-17 -6.522835994559173e-16 1 0.1347016561229187
+  name "rubber duck(1)"
+  scale 0.5
+}
